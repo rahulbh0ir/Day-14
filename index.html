@@ -7,32 +7,75 @@
 </head>
 <body>
   
+  <h2>Open Console</h2>
 
  <script>
     // start with strings, numbers and booleans
+    
 
+    console.log("strings, numbers and booleans")
+
+     let count = 10
+     let count2 = count
+     console.log(count, count2)
+     count = 20 
+     console.log(count, count2)
+
+
+    let name = "ron"
+    let name2 = "don"
+    console.log(name, name2)
+    name = "jon"
+    console.log(name, name2)
+
+
+     let bool = true
+     let bool2 = bool
+     console.log(bool, bool2)
+     bool = false
+     console.log(bool, bool2)
+     
+
+
+    
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
-
+    const team = players
+    
     // You might think we can just do something like this:
-
     // however what happens when we update that array?
+    team[3] = "Rahul"
 
     // now here is the problem!
+    console.log("It changes the original array")
+    console.log(players)
+    console.log(team)
 
     // oh no - we have edited the original array too!
 
     // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
     // So, how do we fix this? We take a copy instead!
+    console.log("Different solutions")
 
     // one way
+    const team2 = players.slice()
+    team2[3] = "Tom"
+    console.log(team2)
 
     // or create a new array and concat the old one in
 
+    const team3 = [].concat(players)
+    team3[3] = "Ron"
+    console.log(team3)
+    
     // or use the new ES6 Spread
+
+    const team4 = [... players]
+    team4[3] = "Harry"
+    console.log(team4)
 
     // now when we update it, the original one isn't changed
 
