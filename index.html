@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+
   <h2>Open Console</h2>
 
- <script>
+  <script>
     // start with strings, numbers and booleans
-    
+
 
     console.log("strings, numbers and booleans")
 
-     let count = 10
-     let count2 = count
-     console.log(count, count2)
-     count = 20 
-     console.log(count, count2)
+    let count = 10
+    let count2 = count
+    console.log(count, count2)
+    count = 20
+    console.log(count, count2)
 
 
     let name = "ron"
@@ -29,21 +31,21 @@
     console.log(name, name2)
 
 
-     let bool = true
-     let bool2 = bool
-     console.log(bool, bool2)
-     bool = false
-     console.log(bool, bool2)
-     
+    let bool = true
+    let bool2 = bool
+    console.log(bool, bool2)
+    bool = false
+    console.log(bool, bool2)
 
 
-    
+
+
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
     const team = players
-    
+
     // You might think we can just do something like this:
     // however what happens when we update that array?
     team[3] = "Rahul"
@@ -70,10 +72,10 @@
     const team3 = [].concat(players)
     team3[3] = "Ron"
     console.log(team3)
-    
+
     // or use the new ES6 Spread
 
-    const team4 = [... players]
+    const team4 = [...players]
     team4[3] = "Harry"
     console.log(team4)
 
@@ -89,23 +91,23 @@
 
     // and think we make a copy:
 
-     const member = person
-     member.age = 99
+    const member = person
+    member.age = 99
 
-     // how do we take a copy instead?
-     
-     const member2 = Object.assign({}, person)
-    
-    member2.age = 33  
+    // how do we take a copy instead?
 
-     
-     console.log(person)
-     console.log(member2)
+    const member2 = Object.assign({}, person)
+
+    member2.age = 33
+
+
+    console.log(person)
+    console.log(member2)
 
     // We will hopefully soon see the object ...spread
 
-    const member3 = {...person} 
-    member3.age = 69 
+    const member3 = { ...person }
+    member3.age = 69
 
     console.log(member3)
 
@@ -113,24 +115,37 @@
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 
     const obj = {
-      name : "Rahul",
-      age : 69,
-      cars : {
-          company : "Suzuki",
-          model: "GX-1000"
+      name: "Rahul",
+      age: 69,
+      cars: {
+        company: "Suzuki",
+        model: "GX-1000"
       }
     }
 
 
-    const copy = Object.assign( {}, obj , {age: 29} )
-    
+    const copy = Object.assign({}, obj, { age: 29 })
     copy.cars.model = "GXR-1000"
 
-    console.log("Obj - ",obj)
-    console.log("Copy - ",copy)
+    console.log("Obj - ", obj)
+    console.log("Copy - ", copy)
+
+
+    console.log("Poor man's deepclone")
+
+    const copy2 = JSON.parse(JSON.stringify(obj))
+    copy2.cars.model = "R1"
+
+
+    console.log("Obj - ", obj)
+    console.log("Copy2 - ", copy2)
+
+
+
 
   </script>
 
 
 </body>
+
 </html>
